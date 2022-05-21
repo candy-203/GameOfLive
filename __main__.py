@@ -91,7 +91,8 @@ class GameOfLive:
 args = sys.argv
 
 if not (3 <= len(args) <= 4):
-    raise ValueError("Usage: python3 -m GameOfLife height width")
+    print("Usage: python3 -m GameOfLife height width")
+    sys.exit(1)
 
 size = 10
 
@@ -101,7 +102,8 @@ try:
     if len(args) == 4:
         size = int(args[3])
 except ValueError:
-    raise ValueError("Usage: python3 -m GameOfLife height width (size)")
+    print("Usage: python3 -m GameOfLife height width (size)")
+    sys.exit(1)
 
 obj = GameOfLive(height, width, size, {1: "green", 0: "white"})
 obj.run()
